@@ -7,6 +7,9 @@ helm template k8s-log-view --debug .
 # OR
 helm install k8s-log-view --dry-run --debug .
 
+# Check the HTTPRoute if enabled
+helm template k8s-log-view . --set httpRoute.enabled=true --show-only templates/httproute.yaml
+
 # Install
 helm install k8s-log-view .
 # OR with dedicated Namespace

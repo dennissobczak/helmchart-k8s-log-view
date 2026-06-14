@@ -113,15 +113,15 @@ httpRoute:
   - name: gateway
     sectionName: http
     # namespace: default
-  # Hostnames matching HTTP header.
-  hostnames:
-  - chart-example.local
-  # List of rules and filters applied.
+  # Hostnames matching HTTP header. Set to the host where k8s-log-view should be served.
+  hostnames: []
+  # - k8s-log-view.example.com
+  # List of rules and filters applied. Defaults to routing all traffic to the Service.
   rules:
   - matches:
     - path:
         type: PathPrefix
-        value: /headers
+        value: /
   #   filters:
   #   - type: RequestHeaderModifier
   #     requestHeaderModifier:
@@ -130,13 +130,6 @@ httpRoute:
   #         value: this-is-the-only-value
   #       remove:
   #       - User-Agent
-  # - matches:
-  #   - path:
-  #       type: PathPrefix
-  #       value: /echo
-  #     headers:
-  #     - name: version
-  #       value: v2
 
 resources:
   requests:
