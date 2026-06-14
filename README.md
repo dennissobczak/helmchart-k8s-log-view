@@ -9,6 +9,8 @@ helm install k8s-log-view --dry-run --debug .
 
 # Install
 helm install k8s-log-view .
+# OR with dedicated Namespace
+helm install k8s-log-view ./k8s-log-view --namespace k8s-log-view --create-namespace
 
 # Check installation
 helm list -n <target namespace>
